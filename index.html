@@ -1,125 +1,229 @@
-
 <!DOCTYPE html>
-<html b:version='2'class='v2'expr:dir='data:blog.languageDirection'xmlns='http://www.w3.org/1999/xhtml'xmlns:b='http://www.google.com/2005/gml/b'xmlns:data='http://www.google.com/2005/gml/data'xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
-
-
-<!--
-<style>
-    .button {
- 
-  background-color: #FFB114;
-  border: 3px ridge #fdf5e6;
-  border-radius: 5px;
-  width: 70%;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 10px;
-  cursor: pointer;
-}
-</style>
--->
-
-
-<style>
-    .button {
+    <title>မြန်မာအောကားများ | Official Portal</title>
+    <meta charset='utf-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
     
-  background-color: #FFB114;
-  border: 2px ridge #fdf5e6;
-   border-radius: 5px;
-  width: 70%;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 10px;
-  cursor: pointer;
-}
-</style>
-
-
-
-<title>မြန်မာအောကားများ</title>
-<meta charset='utf-8'/>
-<meta content='width=device-width, initial-scale=1'name='viewport'/>
-<b:include data='blog'name='all-head-content'/>
-<b:skin version='1.0.0'><![CDATA[/*]]></b:skin>
-
-
-
-	<style type="text/css">
-		.main {
-        
-			display: flex;
-			<!--background color -->
-			align-items: center;
-			justify-content: center;
-			height: 100%
-            
-		}
-       
-        
-        
-        
-        
-
-		body {
-			margin: 0;
-			background-color: #292929;
-            
-		}
-	</style>
+    <link href='https://fonts.googleapis.com/css2?family=Pyidaungsu&amp;display=swap' rel='stylesheet'/>
     
+    <b:include data='blog' name='all-head-content'/>
     
+    <style type='text/css'>
+        :root {
+            --primary-gold: #FFB114;
+            --bg-dark: #0f0f0f;
+            --card-bg: #1e1e1e;
+            --text-light: #f4f4f4;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Pyidaungsu', serif; /* Custom Burmese Font */
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #2c2c2c 0%, #0f0f0f 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--primary-gold);
+            text-shadow: 0 2px 10px rgba(255, 177, 20, 0.3);
+        }
+
+        .hero p {
+            color: #888;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Main Grid Container */
+        .grid-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Styling */
+        .site-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Interaction */
+        .site-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 177, 20, 0.05));
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .site-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        .site-card:hover::before { opacity: 1; }
+
+        .site-card .btn-title {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+            transition: 0.3s;
+        }
+
+        .site-card:hover .btn-title {
+            color: var(--primary-gold);
+        }
+
+        .site-card .site-number {
+            font-size: 0.8rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid #222;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8rem; }
+            .grid-wrapper { gap: 15px; }
+            .site-card { padding: 20px; }
+        }
+    </style>
+    
+    <b:skin><![CDATA[ /* Basic Reset */ ]]></b:skin>
 </head>
-
 
 <body>
 
-   <div class='main'>
-            <p style="text-align: center;" >
-    
-	    <a href="https://allkarpro.com/category/myanmar/page/2/" class="button">မြန်မာအောကားများ (၁)</a> 
-            <a href="https://mmporns.com/" class="button">မြန်မာအောကားများ (၂)</a>
-            <a href="https://maynoe.com" class="button">မြန်မာအောကားများ (၃)</a>
-            <a href="https://myanmarsexstory.com/" class="button">မြန်မာအောကားများ (၄)</a>
-            <a href="https://kosargyi.com" class="button">မြန်မာအောကားများ (၅)</a>
-            <a href="https://mamagyi.cc/" class="button">မြန်မာအောကားများ (၆)</a>
-            <a href="https://sarbaegyi.com" class="button">မြန်မာအောကားများ (၇)</a>
-            <a href="https://drhmonegyi.cc" class="button">မြန်မာအောကားများ (၈)</a>
-            <a href="https://loemal.com" class="button">မြန်မာအောကားများ (၉)</a>
-            <a href="https://bang-movies.com/tag/myanmar/1/" class="button">မြန်မာအောကားများ (၁၀)</a>
-            <a href="https://fimsex.org/myanmar/" class="button">မြန်မာအောကားများ (၁၁)</a>
-            <a href="https://allmoviemm.club/" class="button">မြန်မာအောကားများ (၁၂)</a>
-	    <a href="https://apyarkar.xyz" class="button">မြန်မာအောကားများ (၁၃)</a>
-	    
-		    
-            <!--
-	    <a href="https://apyar.tv/" class="button">မြန်မာအောကားများ (၁၄)</a> notworking
-            
-            
-                    <a href="" class="button">မြန်မာအောကားများ (၁၅)</a>
-		    <a href="" class="button">မြန်မာအောကားများ (၁၆)</a>
-		    <a href="" class="button">မြန်မာအောကားများ (၁၇)</a>
-		    <a href="" class="button">မြန်မာအောကားများ (၁၈)</a>
-		    <a href="" class="button">မြန်မာအောကားများ (၁၉)</a>
-		    
-            -->
-
-	
-    
-    
-    
-    
-    
+    <div class='hero'>
+        <h1>မြန်မာအောကားများ</h1>
+        <p>ကြည်လင်ပြတ်သားသော မြန်မာအောကားများ စုစည်းမှု</p>
     </div>
-    
-  
+
+    <div class='grid-wrapper'>
+        <a class='site-card' href='https://kyawgyi.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁)</span>
+            <span class='site-number'>Server 01</span>
+        </a>
+        
+        <a class='site-card' href='https://mmporns.com/' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၂)</span>
+            <span class='site-number'>Server 02</span>
+        </a>
+
+        <a class='site-card' href='https://maynoe.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၃)</span>
+            <span class='site-number'>Server 03</span>
+        </a>
+
+        <a class='site-card' href='https://sayagyi.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၄)</span>
+            <span class='site-number'>Server 04</span>
+        </a>
+
+        <a class='site-card' href='https://kosargyi.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၅)</span>
+            <span class='site-number'>Server 05</span>
+        </a>
+
+        <a class='site-card' href='https://mamagyi.cc/' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၆)</span>
+            <span class='site-number'>Server 06</span>
+        </a>
+
+        <a class='site-card' href='https://sarbaegyi.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၇)</span>
+            <span class='site-number'>Server 07</span>
+        </a>
+
+        <a class='site-card' href='https://drhmonegyi.cc' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၈)</span>
+            <span class='site-number'>Server 08</span>
+        </a>
+
+        <a class='site-card' href='https://loemal.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၉)</span>
+            <span class='site-number'>Server 09</span>
+        </a>
+
+        <a class='site-card' href='https://bang-movies.com/tag/myanmar/1/' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁၀)</span>
+            <span class='site-number'>Server 10</span>
+        </a>
+
+        <a class='site-card' href='https://fimsex.org/myanmar/' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁၁)</span>
+            <span class='site-number'>Server 11</span>
+        </a>
+
+        <a class='site-card' href='https://allmoviemm.club/' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁၂)</span>
+            <span class='site-number'>Server 12</span>
+        </a>
+
+        <a class='site-card' href='https://apyarkar.xyz' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁၃)</span>
+            <span class='site-number'>Server 13</span>
+        </a>
+        <a class='site-card' href='https://samusar.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁၄)</span>
+            <span class='site-number'>Server 14</span>
+        </a>
+        <a class='site-card' href='https://apyargabar.com' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁၅)</span>
+            <span class='site-number'>Server 15</span>
+        </a>
+        
+        
+         <a class='site-card' href='https://myanmarsexstory.com/' target='_blank'>
+            <span class='btn-title'>မြန်မာအောကားများ (၁၆)</span>
+            <span class='site-number'>Server 15</span>
+        </a>
+        
+        
+    </div>
+
+    <footer>
+        &copy; 2026 မြန်မာအောကားများ 
+    </footer>
+
 </body>
 </html>
